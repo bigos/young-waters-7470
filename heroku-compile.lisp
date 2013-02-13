@@ -9,5 +9,5 @@
 
 (ql:quickload :caveman)
 (pushnew "/app/flintstone/" asdf:*central-registry* :test #'equal) 
-(ql:quickload :flintstone)
+(ql:quickload "flintstone")
 (flintstone:start) 
