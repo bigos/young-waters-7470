@@ -8,6 +8,10 @@
 (print ">>> Done building system")
 
 (ql:quickload :caveman)
-(pushnew "/app/flintstone/" asdf:*central-registry* :test #'equal) 
+
+(ql:quickload "quickproject")
+(quickproject:make-project "/app/flintstone/"
+                             :depends-on '(hunchentoot caveman))
 (ql:quickload "flintstone")
+
 (flintstone:start) 
