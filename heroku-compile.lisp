@@ -8,5 +8,4 @@
 (print ">>> Done building system")
 
 (ql:quickload :caveman)
-(ql:quickload :flintstone) 
-(flintstone:start)
+
