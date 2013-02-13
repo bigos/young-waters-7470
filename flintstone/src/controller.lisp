@@ -21,4 +21,4 @@
 @url POST "/"
 (defun index-post (params)
   @ignore params
-  "Hello, Caveman!")
+  "Hello, mister Caveman!")
