@@ -14,4 +14,4 @@
                              :depends-on '(hunchentoot caveman))
 (ql:quickload "flintstone")
 
-(flintstone:start) 
+
