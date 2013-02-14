@@ -5,5 +5,6 @@
 
 (ql:quickload :caveman) 
 (push #p"/app/flintstone/" asdf:*central-registry*)
-(ql:quickload :flintstone)
+(asdf:operate 'asdf:load-op :flintstone)
+;(ql:quickload :flintstone)
 (flintstone:start))
