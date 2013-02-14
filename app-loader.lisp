@@ -4,8 +4,6 @@
 (require-quicklisp)
 
 (ql:quickload :caveman) 
-
-(ql:quickload "quickproject")
-(quickproject:make-project "/app/flintstone/" :depends-on '(hunchentoot caveman))
+(push #p"/app/flintstone/" asdf:*central-registry*)
 (ql:quickload :flintstone)
 (flintstone:start))
