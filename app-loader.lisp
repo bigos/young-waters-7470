@@ -1,5 +1,6 @@
 (progn 
 (ql:quickload :caveman) 
-(push #p"/app/flintstone" asdf:*central-registry*)
+(push #p"flintstone/" asdf:*central-registry*)
+(format t "~a~%" asdf:*central-registry*)
 (ql:quickload :flintstone)
 (flintstone:start))
