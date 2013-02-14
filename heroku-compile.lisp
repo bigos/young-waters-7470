@@ -6,7 +6,10 @@
 (require-quicklisp)
 ;(ql:quickload :hunchentoot)
 (print ">>> Done building system")
-(progn (ql:quickload :caveman) (ql:quickload "quickproject") (quickproject:make-project "/app/flintstone/" :depends-on '(caveman)))
-(ql:quickload "flintstone")
+
+(ql:quickload :caveman)
+(ql:quickload "quickproject")
+(quickproject:make-project "/app/flintstone/" :depends-on '(hunchentoot caveman))
+
 
 
