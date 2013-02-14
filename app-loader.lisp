@@ -1,6 +1,7 @@
 (progn 
 (ql:quickload :caveman) 
-(push #p"/app/flintstone/" asdf:*central-registry*)
-(format t "::::::: ~s~%" asdf:*central-registry*)
+
+(ql:quickload "quickproject")
+(quickproject:make-project "/app/flintstone/" :depends-on '(hunchentoot caveman))
 (ql:quickload :flintstone)
 (flintstone:start))
