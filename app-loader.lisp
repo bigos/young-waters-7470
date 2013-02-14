@@ -1,4 +1,8 @@
 (progn 
+(require 'asdf)
+(asdf:disable-output-translations)
+(require-quicklisp)
+
 (ql:quickload :caveman) 
 
 (ql:quickload "quickproject")
