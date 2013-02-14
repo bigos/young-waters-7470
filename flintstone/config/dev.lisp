@@ -4,4 +4,4 @@
   :application-root ,(asdf:component-pathname
                       (asdf:find-system :flintstone))
   :server :hunchentoot
-  :port 5000)
+  :port (sb-ext:posix-getenv "PORT"))
