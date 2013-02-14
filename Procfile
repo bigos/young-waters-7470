@@ -1,1 +1,1 @@
-web: ASDF_OUTPUT_TRANSLATIONS=/: ./sbcl/sbcl-1.0.54-x86-64-linux/run-sbcl.sh --load quicklisp/setup.lisp --load app-loader.lisp --eval "(flintstone:start :port 80)" --eval "(loop (sleep 1000))"
+web: ASDF_OUTPUT_TRANSLATIONS=/: ./sbcl/sbcl-1.0.54-x86-64-linux/run-sbcl.sh --load quicklisp/setup.lisp --load app-loader.lisp --eval "(flintstone:start )" --eval "(loop (sleep 1000))"
