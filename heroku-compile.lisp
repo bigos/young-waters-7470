@@ -4,12 +4,8 @@
 (require 'asdf)
 (asdf:disable-output-translations)
 (require-quicklisp)
-;(ql:quickload :hunchentoot)
+(ql:quickload :caveman)
 (print ">>> Done building system")
 
-(ql:quickload :caveman)
-(ql:quickload "quickproject")
-(quickproject:make-project "/app/flintstone/" :depends-on '(hunchentoot caveman))
+(push #p"/app/flintstone/" asdf:*central-registry*)
 (ql:quickload :flintstone)
-
-
