@@ -7,12 +7,14 @@
   <link rel="stylesheet" href="/static/css/main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
 </head>
 <body>
-<h1>Hello, very static Caveman!</h1>
+<h1>Hello, dynamic Caveman!</h1>
 
-<p><% (format t "executed code 3") %></p>
+<p><% (format t "This is executed code.") %></p>
 
 <% (loop for x from 1 to 6 do %>
-<h<% (princ x) %>>Heading <% (princ x) %></h<% (princ x) %>>
+<h<%= x%>>Heading <%= x%></h<%= x%>>
+<p> random value is: <%= (random 100) %>
+</p>
 <% ) %>
 
 </body>
