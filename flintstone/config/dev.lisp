@@ -4,5 +4,4 @@
   :application-root ,(asdf:component-pathname
                       (asdf:find-system :flintstone))
   :server :hunchentoot
-  :port ,(or (parse-integer (format nil "~a" (sb-ext:posix-getenv "PORT")) :junk-allowed t) 5000)
-  )
+  :port 5000)
