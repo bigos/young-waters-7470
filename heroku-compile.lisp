@@ -8,4 +8,4 @@
 (print ">>> Done building system")
 
 (push #p"/app/flintstone/" asdf:*central-registry*)
-(ql:quickload :flintstone)
+(asdf:operate 'asdf:load-op :flintstone)
