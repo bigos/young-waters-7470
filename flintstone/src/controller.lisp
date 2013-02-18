@@ -22,3 +22,7 @@
 (defun index-post (params)
   @ignore params
   "Hello, mister Caveman!")
+
+@url GET "/hello/:name"  
+(defun hello (params)  
+  (format nil "Hello, ~A" (getf params :name))) 
