@@ -11,13 +11,9 @@
 
 <p><% (format t "executed code 3") %></p>
 
-<%
-(loop for x from 1 to 6 do 
-%>
-<h<%(princ x)%>>Heading <%(princ x)%></h<%(princ x)%>>
-<%
-)
-%>
+<% (loop for x from 1 to 6 do %>
+<h<% (princ x) %>>Heading <% (princ x) %></h<% (princ x) %>>
+<% ) %>
 
 </body>
 </html>
