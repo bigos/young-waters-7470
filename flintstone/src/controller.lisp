@@ -15,7 +15,7 @@
 
 @url GET "/"
 (defun index (params)
-  @ignore params
+  ;@ignore params
   (render "index.html"))
 
 @url POST "/"
