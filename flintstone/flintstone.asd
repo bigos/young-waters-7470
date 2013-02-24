@@ -15,7 +15,8 @@
                :caveman
                :cl-syntax
                :cl-syntax-annot
-               :cl-ppcre)
+               :cl-ppcre
+	       :cl-who)
   :components ((:module "lib"
                 :components
                 ((:module "view"
