@@ -23,5 +23,18 @@
 <p>
 <% (format t "~s" caveman:*session*) %>
 </p>
+
+
+<h1>Music links</h1>
+<%
+(cl-who:with-html-output (*standard-output*)
+  (loop for (link . title) in 
+        '(("http://zappa.com/" . "Frank Zappa")
+          ("http://marcusmiller.com/" . "Marcus Miller")
+          ("http://www.milesdavis.com/" . "Miles Davis"))
+        do (cl-who:htm (:a :href link
+                           (:b (cl-who:str title)))
+                       :br)))
+%>
 </body>
 </html>
