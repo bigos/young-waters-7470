@@ -10,6 +10,14 @@
 
 <% @include includes/toolbar.tmpl %>
 
+<% (format t "== session ====&gt; ~S" (type-of caveman:*session*)) %>
+,
+<%= (hash-table-size caveman:*session*) %>, count <%= (hash-table-count caveman:*session*) %>
+,
+<%= (maphash #'(lambda (k v) (format nil "????? ~S" (list k v))) caveman:*session*) %>
+
+
+
 <h1>Hello, dynamic Caveman!</h1>
 
 <p><% (format t "This is executed code.") %></p>
