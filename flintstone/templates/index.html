@@ -15,9 +15,10 @@
 <%= (hash-table-size caveman:*session*) %>, count <%= (hash-table-count caveman:*session*) %>
 ,
 <%= (maphash #'(lambda (k v) (format nil "????? ~S" (list k v))) caveman:*session*) %>
+<p>
+<%= (format nil "~S ~S " (caveman:app-path)(caveman:current-uri)) %>
 
-
-
+</p>
 <h1>Hello, dynamic Caveman!</h1>
 
 <p><% (format t "This is executed code.") %></p>
