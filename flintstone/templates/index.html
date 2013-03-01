@@ -10,6 +10,15 @@
 
 <% @include includes/toolbar.tmpl %>
 
+<% (format t "== session ====&gt; ~S" (type-of caveman:*session*)) %>
+,
+<%= (hash-table-size caveman:*session*) %>, count <%= (hash-table-count caveman:*session*) %>
+,
+<%= (maphash #'(lambda (k v) (format nil "????? ~S" (list k v))) caveman:*session*) %>
+<p>
+<%= (format nil "~S ~S " (caveman:app-path)(caveman:current-uri)) %>
+
+</p>
 <h1>Hello, dynamic Caveman!</h1>
 
 <p><% (format t "This is executed code.") %></p>
@@ -23,5 +32,18 @@
 <p>
 <%= (format nil "===== ~s" env) %>
 </p>
+
+
+<h1>Music links</h1>
+<%
+(cl-who:with-html-output (*standard-output*)
+  (loop for (link . title) in 
+        '(("http://zappa.com/" . "Frank Zappa")
+          ("http://marcusmiller.com/" . "Marcus Miller")
+          ("http://www.milesdavis.com/" . "Miles Davis"))
+        do (cl-who:htm (:a :href link
+                           (:b (cl-who:str title)))
+                       :br)))
+%>
 </body>
 </html>
