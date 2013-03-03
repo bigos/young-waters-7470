@@ -24,6 +24,8 @@
   @ignore params
   "Hello, mister Caveman!")
 
-@url GET "/hello/:name"  
+@url GET "/hello"  
 (defun hello (params)  
-  (format nil "Hello, ~A" (getf params :name))) 
+  ;;(format nil "Hello, ~A" (getf params :name))
+  (context)
+(render "hello.html")) 
