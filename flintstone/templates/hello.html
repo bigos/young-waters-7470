@@ -21,8 +21,10 @@
 <p>
 <% (format t "~s" caveman:*session*) %>
 </p>
+<p>
 <%= (describe (caveman:context :request))  %>
+</p>
 
-
+<%= (describe flintstone.controller::zum) %>
 </body>
 </html>

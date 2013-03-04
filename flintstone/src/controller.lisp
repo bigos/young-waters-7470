@@ -28,4 +28,5 @@
 (defun hello (params)  
   ;;(format nil "Hello, ~A" (getf params :name))
   (context)
-(render "hello.html")) 
+  (setf zum "zum")
+  (render "hello.html")) 
