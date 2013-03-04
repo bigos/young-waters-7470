@@ -25,6 +25,16 @@
 <% (describe (caveman:context :request))  %>
 </p>
 <p><% (describe (caveman:context :response)) %></p>
-<% (describe flintstone.controller::zum) %>
+<% (describe flintstone.controller::zum) %> <% (describe (list-all-packages)) %>
+
+<%
+   (with-package-iterator (next-symbol (list-all-packages)
+                           :internal :external)
+     (loop
+       (multiple-value-bind (more? symbol) (next-symbol)
+         (if more? 
+            (print symbol)
+            (return)))))
+%>
 </body>
 </html>
