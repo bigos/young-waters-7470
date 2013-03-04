@@ -9,3 +9,5 @@
 <%= (hash-table-size caveman:*session*) %>, count <%= (hash-table-count caveman:*session*) %>
 ,
 <%= (maphash #'(lambda (k v) (format nil "????? ~S" (list k v))) caveman:*session*) %>
+<hr>
+<a href="https://github.com/fukamachi/caveman/blob/master/src/core/route.lisp" target="blank"> routing doc</a>
