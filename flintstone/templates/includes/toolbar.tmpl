@@ -1,3 +1,11 @@
 <hr>
-<a href="/">home</a> | <a href="/hello?some=success">hello</a> | item3 | everything works | <%= (random (+ 1 2 3)) %> <%= my-val %>
+<a href="/">home</a> | <a href="/hello?some=success">hello</a> |
+<a href="https://github.com/fukamachi/caveman" target="blank">Github documentation</a>
+| everything works | <%= (random (+ 1 2 3)) %> <%= my-val %>
 <hr>
+
+<% (format t "== session ====&gt; ~S" (type-of caveman:*session*)) %>
+,
+<%= (hash-table-size caveman:*session*) %>, count <%= (hash-table-count caveman:*session*) %>
+,
+<%= (maphash #'(lambda (k v) (format nil "????? ~S" (list k v))) caveman:*session*) %>
