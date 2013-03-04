@@ -19,22 +19,30 @@
 
 <hr>
 <p>
-<% (format t "~s" caveman:*session*) %>
+<% (format t "~S"   caveman:*session* ) %>
 </p>
 <p>
-<% (describe (caveman:context :request))  %>
+<% (describe (caveman:context :request) )  %>
 </p>
-<p><% (describe (caveman:context :response)) %></p>
-<% (describe flintstone.controller::zum) %> <% (describe (list-all-packages)) %>
 
-<%
+
+<%= (setf ht (caveman:context )) %>
+<%= (setf rq (gethash :request ht))%>
+
+
+<p><% (describe (caveman:context :response)) %></p>
+<p><% (describe flintstone.controller::zum) %> <% (describe (list-all-packages)) %></p>
+
+<p>
+<% ;;list sybbols in packages
    (with-package-iterator (next-symbol (list-all-packages)
-                           :internal :external)
+                            :external)
      (loop
        (multiple-value-bind (more? symbol) (next-symbol)
          (if more? 
             (print symbol)
             (return)))))
 %>
+</p>
 </body>
 </html>
