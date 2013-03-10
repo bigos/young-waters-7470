@@ -38,16 +38,24 @@ descriibing rq <% (describe rq)%>
 <br>stots machine <%= (describe ()) %>
 
 <br> rq object slots 
-<%= (mapcar #'sb-pcl:slot-definition-name (sb-pcl:class-slots (class-of rq))) %>
+<%= (format t "~S" (mapcar #'sb-pcl:slot-definition-name (sb-pcl:class-slots (class-of rq)))) %>
 <br>
-<%= (sb-pcl:class-slots (class-of rq)) %>
+<%= 
+(loop for the-slot in (mapcar #'sb-pcl:slot-definition-name (sb-pcl:class-slots (class-of rq))) do (if (slot-boundp rq the-slot)
+                                     (format t "qqqqqqq ~S qqqqqqq" (slot-value rq the-slot))
+                                   )) 
+
+ %>
 <%=
 #| this is how you can inspect clos object, but it won't work with caveman for some reason |#
 (loop for the-slot in (mapcar #'sb-pcl:slot-definition-name (sb-pcl:class-slots (class-of rq))) collect (list the-slot  (if (slot-boundp rq the-slot)
                                      (slot-value rq the-slot)
                                    "unbound"))) 
  %>
-
+<hr>server port
+<%
+ %>
+<br>
 
 
 <p><% (describe (caveman:context :response)) %></p>
