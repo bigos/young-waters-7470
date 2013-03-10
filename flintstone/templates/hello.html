@@ -17,17 +17,19 @@
 </p>
 
 <hr>
-<% (format t "======   ~S"  (slot-value CAVEMAN.CONTEXT:*REQUEST* 'server-port) ) %>
+
 <hr>
 
 <p> session: <% @var caveman:*session*  -escape html%> </p>
 
-<p> context: <% (describe (caveman:context :request) )  %></p>
+<p> context: <% (describe (caveman:context ) )  %></p>
 
-
+hash table
 <%= (setf ht (caveman:context )) %>
-<%= (setf rq (gethash :request ht))%>
 
+rr in hash table
+<%= (setf rq (gethash :request ht))%>
+descriibing rq <% (describe rq)%>
 
 <p><% (describe (caveman:context :response)) %></p>
 <p><% (describe flintstone.controller::zum) %> <% (describe (list-all-packages)) %></p>
