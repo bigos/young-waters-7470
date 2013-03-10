@@ -41,11 +41,11 @@ descriibing rq <% (describe rq)%>
 <%= (mapcar #'sb-pcl:slot-definition-name (sb-pcl:class-slots (class-of rq))) %>
 <br>
 <%= (sb-pcl:class-slots (class-of rq)) %>
-<%
-#| this is how you can inspect clos object, but it won't work with caveman for some reason
-(loop for the-slot in (sb-pcl:class-slots (class-of rq)) collect (list the-slot  (if (slot-boundp rq the-slot)
+<%=
+#| this is how you can inspect clos object, but it won't work with caveman for some reason |#
+(loop for the-slot in (mapcar #'sb-pcl:slot-definition-name (sb-pcl:class-slots (class-of rq))) collect (list the-slot  (if (slot-boundp rq the-slot)
                                      (slot-value rq the-slot)
-                                   "unbound"))) |#
+                                   "unbound"))) 
  %>
 
 
