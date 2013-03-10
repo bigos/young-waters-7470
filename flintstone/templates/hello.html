@@ -14,16 +14,15 @@
 <h1>Just to say Hello</h1>
 <p>
 <%= (format nil "~S ~S " (caveman:app-path)(caveman:current-uri)) %>
-
 </p>
 
 <hr>
-<p>
-<% (format t "~S"   caveman:*session* ) %>
-</p>
-<p>
-<% (describe (caveman:context :request) )  %>
-</p>
+<% (format t "======   ~S"  (slot-value CAVEMAN.CONTEXT:*REQUEST* 'server-port) ) %>
+<hr>
+
+<p> session: <% @var caveman:*session*  -escape html%> </p>
+
+<p> context: <% (describe (caveman:context :request) )  %></p>
 
 
 <%= (setf ht (caveman:context )) %>
