@@ -42,7 +42,7 @@ descriibing rq <% (describe rq)%>
 <br>
 <%= 
 (loop for the-slot in (mapcar #'sb-pcl:slot-definition-name (sb-pcl:class-slots (class-of rq))) do (if (slot-boundp rq the-slot)
-                                     (format t "qqqqqqq ~S qqqqqqq" (slot-value rq the-slot))
+                                     (format t "     value: ~S slot: ~S <br>" (slot-value rq the-slot) the-slot)
                                    )) 
 
  %>
@@ -52,9 +52,8 @@ descriibing rq <% (describe rq)%>
                                      (slot-value rq the-slot)
                                    "unbound"))) 
  %>
-<hr>server port
-<%
- %>
+<h4>server port</h4>
+<%=  (slot-value rq 'CLACK.REQUEST:SERVER-NAME ) %>
 <br>
 
 
