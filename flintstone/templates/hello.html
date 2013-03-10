@@ -25,11 +25,30 @@
 <p> context: <% (describe (caveman:context ) )  %></p>
 
 hash table
-<%= (setf ht (caveman:context )) %>
-
+<% (setf ht (caveman:context )) %>
+hhhhhhhhhhhhh
+<%=
+(maphash #'(lambda (k v) (progn (format t "<br>")(format t " ~s ^^^ " k)(describe v)(format t "<br>")))   ht)
+%>
+hhhhhhhhhhhh
+<hr>
 rr in hash table
 <%= (setf rq (gethash :request ht))%>
 descriibing rq <% (describe rq)%>
+<br>stots machine <%= (describe ()) %>
+
+<br> rq object slots 
+<%= (mapcar #'sb-pcl:slot-definition-name (sb-pcl:class-slots (class-of rq))) %>
+<br>
+<%= (sb-pcl:class-slots (class-of rq)) %>
+<%
+#| this is how you can inspect clos object, but it won't work with caveman for some reason
+(loop for the-slot in (sb-pcl:class-slots (class-of rq)) collect (list the-slot  (if (slot-boundp rq the-slot)
+                                     (slot-value rq the-slot)
+                                   "unbound"))) |#
+ %>
+
+
 
 <p><% (describe (caveman:context :response)) %></p>
 <p><% (describe flintstone.controller::zum) %> <% (describe (list-all-packages)) %></p>
