@@ -17,49 +17,39 @@
 </p>
 
 <hr>
-
+<h4>my data</h4>
+port <%=  (slot-value (gethash :request (caveman:context)) 'CLACK.REQUEST:server-port ) %> <br>
+status <%=  (slot-value (gethash :response (caveman:context)) 'CLACK.response:status ) %>
 <hr>
 
-<p> session: <% @var caveman:*session*  -escape html%> </p>
 
-<p> context: <% (describe (caveman:context ) )  %></p>
+<p> caveman:context <% (describe (caveman:context ) )  %></p>
 
-hash table
-<% (setf ht (caveman:context )) %>
-hhhhhhhhhhhhh
-<%=
-(maphash #'(lambda (k v) (progn (format t "<br>")(format t " ~s ^^^ " k)(describe v)(format t "<br>")))   ht)
-%>
-hhhhhhhhhhhh
+caveman:context hash table
+<%= (maphash #'(lambda (k v) (progn (format t "<br>")(format t " ~s ^^^ " k)(describe v)(format t "<br>"))) (caveman:context)) %>
+
 <hr>
-rr in hash table
-<%= (setf rq (gethash :request ht))%>
+<% (setf rq (gethash :request (caveman:context)))%>
 descriibing rq <% (describe rq)%>
-<br>stots machine <%= (describe ()) %>
 
-<br> rq object slots 
+
+<p> rq object slots 
 <%= (format t "~S" (mapcar #'sb-pcl:slot-definition-name (sb-pcl:class-slots (class-of rq)))) %>
-<br>
-<%= 
-(loop for the-slot in (mapcar #'sb-pcl:slot-definition-name (sb-pcl:class-slots (class-of rq))) do (if (slot-boundp rq the-slot)
-                                     (format t "     value: ~S slot: ~S <br>" (slot-value rq the-slot) the-slot)
-                                   )) 
+</p>
 
- %>
-<%=
-#| this is how you can inspect clos object, but it won't work with caveman for some reason |#
-(loop for the-slot in (mapcar #'sb-pcl:slot-definition-name (sb-pcl:class-slots (class-of rq))) collect (list the-slot  (if (slot-boundp rq the-slot)
+<p>inspected object  <%= (loop for the-slot in (mapcar #'sb-pcl:slot-definition-name (sb-pcl:class-slots (class-of rq))) 
+collect (list the-slot  (if (slot-boundp rq the-slot)
                                      (slot-value rq the-slot)
-                                   "unbound"))) 
- %>
-<h4>server port</h4>
-<%=  (slot-value rq 'CLACK.REQUEST:SERVER-NAME ) %>
-<br>
+                                     "unbound"))) %>
+</p>
+
+
+
 
 
 <p><% (describe (caveman:context :response)) %></p>
 <p><% (describe flintstone.controller::zum) %> <% (describe (list-all-packages)) %></p>
-
+<hr>
 <p>
 <% ;;list sybbols in packages
    (with-package-iterator (next-symbol (list-all-packages)
