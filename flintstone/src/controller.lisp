@@ -25,8 +25,12 @@
   "Hello, mister Caveman!")
 
 @url GET "/hello"  
-(defun hello (params)  
-  ;;(format nil "Hello, ~A" (getf params :name))
+(defun hello (params)
   (context)
   (setf zum "zum")
   (render "hello.html")) 
+
+@url GET "/:controller/:action"
+(defun ror (params)
+  (context)  
+  (format nil "roring ~s ~s ~s"  params (getf params :controller) (getf params :action) )) 
